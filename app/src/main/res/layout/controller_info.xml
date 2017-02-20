@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.amaysim.testmariorlopez.entities.PlanItem" />
+
+        <variable
+            name="userInfo"
+            type="com.amaysim.testmariorlopez.entities.UserInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.data.id}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{PlanItem.getPlan(userInfo.planItems, PlanItem.SUBSCRIPTION_KEY).attributes.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{PlanItem.getPlan(userInfo.planItems, PlanItem.SUBSCRIPTION_KEY).attributes.includedDataBalanceFormatted}" />
+
+        <!--I Assume the related product it's the on on the same array, as the relationship for the product-->
+        <!--as id=0 so it cannot be related.. -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{PlanItem.getPlan(userInfo.planItems, PlanItem.PRODUCTS_KEY).attributes.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{PlanItem.getPlan(userInfo.planItems, PlanItem.PRODUCTS_KEY).attributes.priceFormatted}" />
+
+    </LinearLayout>
+</layout>
