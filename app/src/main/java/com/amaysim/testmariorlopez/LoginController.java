@@ -120,7 +120,6 @@ class LoginPresenter extends BasePresenter<LoginView> {
                             if (TextUtils.equals(planItemWithMsn.getAttributes().getMsn(), msn)) {
                                 logged = true;
                             }
-                            logged = true;
                             if (view != null) {
                                 view.showLoadingUi(false);
                                 view.login(logged);
